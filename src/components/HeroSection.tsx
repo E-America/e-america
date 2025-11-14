@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import heroBackground from "@/assets/hero-background.svg";
+import arrowIcon from "@/assets/arrow-icon.svg";
 
 const HeroSection = () => {
   const phrases = ["you.", "me.", "us.", "everyone."];
@@ -33,45 +33,39 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-hero" />
-      
-      {/* Hero image overlay */}
+      {/* Background with overlay image */}
       <div 
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1541499482271-e08df6b8c5c2?q=80&w=2000')",
+          backgroundImage: `url(${heroBackground})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          mixBlendMode: "overlay"
+          backgroundPosition: "center"
         }}
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <p className="text-white/90 text-lg md:text-xl mb-6 animate-fade-in">
-          We're building a parallel digital America,
+      <div className="relative z-10 container mx-auto px-4 text-center pt-20">
+        <p className="text-white text-lg md:text-xl mb-8 animate-fade-in font-normal">
+          We're building a parallel digital America.
         </p>
         
-        <h1 className="text-white font-bold mb-8">
-          <span className="block text-5xl md:text-7xl lg:text-8xl mb-4">
+        <h1 className="text-white font-bold mb-12">
+          <span className="block text-6xl md:text-8xl lg:text-9xl mb-2">
             America
           </span>
           <span className="block text-5xl md:text-7xl lg:text-8xl">
-            for <span className="inline-block min-w-[200px] text-left">{displayText}</span>
+            for <span className="inline-block min-w-[250px] text-left">{displayText}</span>
           </span>
         </h1>
 
-        <Button 
-          className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-full px-8 py-6 text-lg shadow-lg"
+        <button 
+          className="relative inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full text-white font-semibold text-lg transition-all hover:scale-105 bg-gradient-to-r from-[#0C4CD3] via-[#700265] to-[#DA1E3F] border border-white/20"
           onClick={() => document.getElementById('mission')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          Explore More <ArrowDown className="ml-2 h-5 w-5" />
-        </Button>
+          Explore More
+          <img src={arrowIcon} alt="" className="w-24 h-3" />
+        </button>
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
