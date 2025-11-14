@@ -49,7 +49,7 @@ const HeroSection = () => {
           We're building a parallel digital America.
         </p>
         
-        <h1 className="text-white font-bold mb-12">
+        <h1 className="text-white font-fredoka font-semibold mb-12">
           <span className="block text-6xl md:text-8xl lg:text-9xl mb-2">
             America
           </span>
