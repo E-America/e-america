@@ -63,7 +63,6 @@ const HeroSection = () => {
           onClick={() => document.getElementById('mission')?.scrollIntoView({ behavior: 'smooth' })}
         >
           Explore More
-          <img src={arrowIcon} alt="" className="w-24 h-3" />
         </button>
       </div>
     </section>
