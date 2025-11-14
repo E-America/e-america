@@ -26,7 +26,7 @@ const HeroSection = () => {
         // Type one character
         setDisplayText(currentPhrase.substring(0, displayText.length + 1));
       }
-    }, isDeleting ? 50 : 100);
+    }, isDeleting ? 80 : 150);
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentPhraseIndex]);
@@ -54,8 +54,11 @@ const HeroSection = () => {
         </p>
         
         <h1 className="text-white font-bold mb-8">
+          <span className="block text-5xl md:text-7xl lg:text-8xl mb-4">
+            America
+          </span>
           <span className="block text-5xl md:text-7xl lg:text-8xl">
-            America for <span className="inline-block min-w-[200px] text-left">{displayText}</span>
+            for <span className="inline-block min-w-[200px] text-left">{displayText}</span>
           </span>
         </h1>
 
