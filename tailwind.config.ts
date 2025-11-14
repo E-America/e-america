@@ -106,6 +106,7 @@ export default {
       fontFamily: {
         'mono': ['Major Mono Display', 'monospace'],
         'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'fredoka': ['Fredoka', 'sans-serif'],
       },
     },
   },
