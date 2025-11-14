@@ -5,19 +5,31 @@ import { ArrowDown } from "lucide-react";
 const HeroSection = () => {
   const phrases = ["you.", "me.", "us.", "everyone."];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(false);
-      setTimeout(() => {
+    const currentPhrase = phrases[currentPhraseIndex];
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayText === currentPhrase) {
+        // Finished typing, wait then start deleting
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && displayText === "") {
+        // Finished deleting, move to next phrase
+        setIsDeleting(false);
         setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
-        setIsAnimating(true);
-      }, 300);
-    }, 3000);
+      } else if (isDeleting) {
+        // Delete one character
+        setDisplayText(currentPhrase.substring(0, displayText.length - 1));
+      } else {
+        // Type one character
+        setDisplayText(currentPhrase.substring(0, displayText.length + 1));
+      }
+    }, isDeleting ? 50 : 100);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentPhraseIndex]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -42,18 +54,8 @@ const HeroSection = () => {
         </p>
         
         <h1 className="text-white font-bold mb-8">
-          <span className="block text-5xl md:text-7xl lg:text-8xl mb-4">
-            an America
-          </span>
           <span className="block text-5xl md:text-7xl lg:text-8xl">
-            for{" "}
-            <span 
-              className={`inline-block transition-opacity duration-300 ${
-                isAnimating ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              {phrases[currentPhraseIndex]}
-            </span>
+            America for <span className="inline-block min-w-[200px] text-left">{displayText}</span>
           </span>
         </h1>
 
