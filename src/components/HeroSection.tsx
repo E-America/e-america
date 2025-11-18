@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import heroBackground from "@/assets/hero-background.png";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
   const phrases = ["you.", "me.", "us.", "everyone."];
