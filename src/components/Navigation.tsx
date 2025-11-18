@@ -1,16 +1,31 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import logo from "@/assets/logo.png";
 
 const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0B1E46]">
-      <div className="flex items-center justify-between px-[4.875rem] py-[3.0625rem]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0B1E46] transition-all duration-300">
+      <div className={`flex items-center justify-between px-[4.875rem] transition-all duration-300 ${
+        isScrolled ? "py-[1.1875rem]" : "py-[3.0625rem]"
+      }`}>
         <Link to="/" className="flex-none">
           <img 
             src={logo} 
             alt="e-AMERICA logo" 
-            className="w-[13.26rem] h-[3.59rem]"
+            className={`transition-all duration-300 ${
+              isScrolled ? "w-[11.75rem] h-[3.18rem]" : "w-[13.26rem] h-[3.59rem]"
+            }`}
           />
         </Link>
         
