@@ -37,18 +37,27 @@ const Navigation = () => {
         </div>
 
         <Link to="/apply" className="flex-none">
-          <Button 
-            className="bg-white hover:bg-white/90 font-ubuntu-mono font-medium rounded-full px-[2.25rem] py-[1rem] text-[1.375rem] leading-[1.625rem] h-[3.625rem]"
+          <button 
+            className="flex flex-row justify-center items-center font-ubuntu-mono font-medium rounded-full bg-white hover:bg-white/95 transition-colors"
             style={{
-              background: 'white',
-              backgroundImage: 'linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              padding: '1rem 2.25rem',
+              width: '11.4375rem',
+              height: '3.625rem',
+              boxSizing: 'border-box'
             }}
           >
-            Apply Now
-          </Button>
+            <span 
+              className="text-[1.375rem] leading-[1.625rem]"
+              style={{
+                background: 'linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
+              Apply Now
+            </span>
+          </button>
         </Link>
       </div>
     </nav>
