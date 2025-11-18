@@ -1,17 +1,31 @@
-import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import MissionSection from "@/components/MissionSection";
-import AboutSection from "@/components/AboutSection";
+import Navigation from "@/components/Navigation"
+import HeroSection from "@/components/HeroSection"
+import DigitalExperimentSection from "@/components/DigitalExperimentSection"
+import QuoteSection from "@/components/QuoteSection"
+import MissionSection from "@/components/MissionSection"
+import BackgroundSection from "@/components/BackgroundSection"
+import EPassportSection from "@/components/EPassportSection"
+import ETreasurySection from "@/components/ETreasurySection"
+import EServicesSection from "@/components/EServicesSection"
+import ConstitutionSection from "@/components/ConstitutionSection"
+import Footer from "@/components/Footer"
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <DigitalExperimentSection />
+      <QuoteSection />
       <MissionSection />
-      <AboutSection />
+      <BackgroundSection />
+      <EPassportSection />
+      <ETreasurySection />
+      <EServicesSection />
+      <ConstitutionSection />
+      <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
