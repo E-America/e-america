@@ -1,7 +1,32 @@
+import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import heroBackground from "@/assets/hero-background.svg";
 
 const HeroSection = () => {
+  const phrases = ["you.", "me.", "us.", "everyone."];
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = phrases[currentPhraseIndex];
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting && displayText === currentPhrase) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && displayText === "") {
+        setIsDeleting(false);
+        setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+      } else if (isDeleting) {
+        setDisplayText(currentPhrase.substring(0, displayText.length - 1));
+      } else {
+        setDisplayText(currentPhrase.substring(0, displayText.length + 1));
+      }
+    }, isDeleting ? 80 : 150);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentPhraseIndex]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image */}
@@ -31,7 +56,7 @@ const HeroSection = () => {
         
         <h1 className="text-white font-ubuntu-mono font-bold text-[110px] leading-[132px] mb-32">
           America <br />
-          for everyone.
+          for <span className="inline-block min-w-[300px] text-left">{displayText}</span>
         </h1>
 
         <button 
