@@ -104,9 +104,9 @@ export default {
         "typing": "typing 3s ease-in-out"
       },
       fontFamily: {
-        'mono': ['Major Mono Display', 'monospace'],
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'fredoka': ['Fredoka', 'sans-serif'],
+        'ubuntu': ['Ubuntu', 'sans-serif'],
+        'ubuntu-mono': ['Ubuntu Mono', 'monospace'],
+        'sans': ['Ubuntu', 'system-ui', 'sans-serif'],
       },
     },
   },
