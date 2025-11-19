@@ -1,73 +1,86 @@
 const Footer = () => {
-  const imgFooter = "https://www.figma.com/api/mcp/asset/a0a47053-c177-4d91-afb7-c49ba0688337";
-  const img30 = "https://www.figma.com/api/mcp/asset/2f274e07-efcc-4344-bf90-997c31eb26fc";
-  const img31 = "https://www.figma.com/api/mcp/asset/960b997e-8b3a-459f-b2f2-e5d80c5f9ea7";
+  const imgHeart = "/heart-icon.svg";
+  const imgGroup25 = "/draper-nation-logo.svg";
+  const imgTwitter = "/twitter-icon.svg";
+  const imgInstagram = "/instagram-icon.svg";
+  const imgLinkedin = "/linkedin-icon.svg";
 
   return (
-    <footer className="relative bg-[#0b1e46] h-[408px]">
-      <div className="absolute inset-0">
-        <img 
-          alt="" 
-          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" 
-          src={imgFooter} 
-        />
-      </div>
-      
-      <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-between">
-        <div className="h-[57px] relative shrink-0 w-[212px]">
-          <img alt="" className="block max-w-none size-full" src={img30} />
-        </div>
-        
-        <div className="flex items-center justify-between flex-1 max-w-[1236px] ml-8">
-          <div className="flex gap-9 items-center flex-wrap">
-            <div className="flex gap-[10px] items-center w-[147px]">
-              <div className="box-border flex flex-1 gap-2 items-center px-0 py-[9px] relative">
-                <div className="relative shrink-0 size-[7px]">
-                  <img alt="" className="block max-w-none size-full" src={img31} />
-                </div>
-                <p className="font-ubuntu-mono font-medium leading-[normal] text-[1.25rem] text-white whitespace-pre-wrap ml-2">
-                  About Us
-                </p>
-              </div>
-            </div>
-            <div className="h-6 shrink-0 w-[124px]">
-              <p className="font-ubuntu-mono font-normal leading-[normal] text-[#b7b7b7] text-[1.25rem] text-center">
-                Our Mission
-              </p>
-            </div>
-            <div className="h-6 shrink-0 w-[124px]">
-              <p className="font-ubuntu-mono font-normal leading-[normal] text-[#b7b7b7] text-[1.25rem] text-center">
-                e-Passport
-              </p>
-            </div>
-            <div className="h-6 shrink-0 w-[124px]">
-              <p className="font-ubuntu-mono font-normal leading-[normal] text-[#b7b7b7] text-[1.25rem] text-center">
-                e-Treasury
-              </p>
-            </div>
-            <div className="h-6 shrink-0 w-[124px]">
-              <p className="font-ubuntu-mono font-normal leading-[normal] text-[#b7b7b7] text-[1.25rem] text-center">
-                e-Services
-              </p>
-            </div>
-            <div className="h-6 shrink-0 w-[181px]">
-              <p className="font-ubuntu-mono font-normal leading-[normal] text-[#b7b7b7] text-[1.25rem] text-center">
-                The Constitution
-              </p>
-            </div>
+    <footer className="bg-[#0b1e46] box-border flex flex-col gap-12 sm:gap-16 lg:gap-[78px] items-center justify-center pb-6 sm:pb-8 lg:pb-[38px] pt-12 sm:pt-16 md:pt-20 lg:pt-[120px] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[80px] relative w-full">
+      <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-0 relative shrink-0 w-full max-w-[1400px]">
+        {/* Left Section: Crafted with by + Logo */}
+        <div className="flex flex-col items-start relative shrink-0 w-full lg:w-auto">
+          <div className="flex items-center gap-2 font-ubuntu-mono font-bold text-[24px] sm:text-[28px] lg:text-[30px] text-white mb-4 lg:mb-0">
+            <span className="whitespace-pre-wrap">Crafted with</span>
+            <img className="size-[28px] sm:size-[32px] lg:size-[36px]" alt="Heart icon" src={imgHeart} />
+            <span className="whitespace-pre-wrap">by</span>
           </div>
-          
-          <button className="bg-white border border-[#0b1e46] border-solid box-border flex gap-[10px] items-center justify-center px-9 py-4 rounded-[1000px] shrink-0">
-            <p className="bg-clip-text font-ubuntu-mono font-medium leading-[normal] text-[1.375rem]" style={{
-              background: 'linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}>
-              Apply Now
+          <div className="h-auto w-[200px] sm:w-[240px] lg:w-[263.93px] lg:h-[110.126px] mt-4 lg:mt-[37.37%]">
+            <img className="block max-w-none w-full h-auto" alt="Draper Nation logo" src={imgGroup25} />
+          </div>
+        </div>
+
+        {/* Middle Section: Contact Us */}
+        <div className="flex flex-col gap-[13px] items-start lg:items-start relative shrink-0 w-full lg:w-[288px]">
+          <p className="font-ubuntu-mono font-bold leading-[normal] text-[20px] sm:text-[22px] lg:text-[24px] text-white whitespace-pre-wrap">
+            Contact Us
+          </p>
+          <p className="font-ubuntu font-normal leading-[30px] not-italic text-[18px] sm:text-[19px] lg:text-[20px] text-white whitespace-pre-wrap">
+            55 E 3rd Ave, San Mateo
+            <br className="" aria-hidden="true" />
+            CA 94401, United States
+          </p>
+          <a 
+            className="block font-ubuntu font-normal not-italic text-[#ff516f] text-[18px] sm:text-[19px] lg:text-[20px] hover:opacity-80 transition-opacity" 
+            href="mailto:hello@e-america.org"
+          >
+            <p className="[text-underline-position:from-font] cursor-pointer decoration-solid leading-[normal] underline whitespace-pre-wrap">
+              hello@e-america.org
             </p>
-          </button>
+          </a>
+        </div>
+
+        {/* Right Section: Follow us */}
+        <div className="flex flex-col gap-[32px] items-start lg:items-end justify-center relative shrink-0 w-full lg:w-auto">
+          <p className="font-ubuntu-mono font-bold leading-[normal] text-[20px] sm:text-[22px] lg:text-[24px] text-left lg:text-right text-white whitespace-pre-wrap">
+            Follow us
+          </p>
+          <div className="flex gap-[32px] sm:gap-[38px] lg:gap-[42px] items-center justify-start lg:justify-end relative shrink-0">
+            <a 
+              href="https://twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative shrink-0 size-[38px] sm:size-[40px] lg:size-[42px] hover:opacity-80 transition-opacity"
+              aria-label="Twitter"
+            >
+              <img className="block max-w-none size-full" alt="Twitter" src={imgTwitter} />
+            </a>
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative shrink-0 size-[38px] sm:size-[40px] lg:size-[42px] hover:opacity-80 transition-opacity"
+              aria-label="Instagram"
+            >
+              <img className="block max-w-none size-full" alt="Instagram" src={imgInstagram} />
+            </a>
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative shrink-0 size-[38px] sm:size-[40px] lg:size-[42px] hover:opacity-80 transition-opacity"
+              aria-label="LinkedIn"
+            >
+              <img className="block max-w-none size-full" alt="LinkedIn" src={imgLinkedin} />
+            </a>
+          </div>
         </div>
       </div>
+
+      {/* Copyright */}
+      <p className="font-ubuntu font-normal leading-[34px] not-italic relative shrink-0 text-[#d1d7e4] text-[16px] sm:text-[17px] lg:text-[18px] text-center w-full whitespace-pre-wrap">
+        © 2025 e-AMERICA
+      </p>
     </footer>
   );
 };

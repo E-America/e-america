@@ -6,21 +6,22 @@ import MissionSection from "@/components/MissionSection"
 import BackgroundSection from "@/components/BackgroundSection"
 import EPassportSection from "@/components/EPassportSection"
 import ETreasurySection from "@/components/ETreasurySection"
+import Divider from "@/components/Divider"
 import EServicesSection from "@/components/EServicesSection"
 import ConstitutionSection from "@/components/ConstitutionSection"
 import Footer from "@/components/Footer"
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full">
       <Navigation />
       <HeroSection />
       <DigitalExperimentSection />
       <QuoteSection />
       <MissionSection />
-      <BackgroundSection />
       <EPassportSection />
       <ETreasurySection />
+      <Divider />
       <EServicesSection />
       <ConstitutionSection />
       <Footer />

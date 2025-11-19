@@ -1,64 +1,98 @@
 const DigitalExperimentSection = () => {
-  const imgRectangle4 = "https://www.figma.com/api/mcp/asset/4d7062a6-2484-4900-b633-68248c6ae4e0";
+  const imgRectangle4 = "/digital-experiment-1.png"
+  const imgRectangle5 = "/digital-experiment-2.png"
 
   return (
-    <section id="mission" className="relative bg-white py-24">
+    <section id="mission" className="relative bg-white pb-0 pt-[10rem]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 px-4">
-          <p className="font-ubuntu font-medium text-[#0b1e46] text-[2rem] leading-[normal] mb-4">
+        {/* Header */}
+        <div className="flex flex-col gap-2 items-center text-center w-full max-w-[1149px] mx-auto mb-8">
+          <p className="font-ubuntu font-medium leading-[normal] text-[#0b1e46] text-[2rem] w-full whitespace-pre-wrap">
             🇺🇸 e-AMERICA
           </p>
-          <div className="font-ubuntu font-bold text-[3.75rem] text-center tracking-[2px] py-8 leading-[1.4]">
-            <h2 
-              className="whitespace-pre-wrap bg-clip-text text-transparent break-words" 
-              style={{
-                background: 'linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                lineHeight: '1.4',
-                paddingTop: '1rem',
-                paddingBottom: '1rem',
-                display: 'block',
-              }}
-            >
-              A Digital Experiment in Freedom
-            </h2>
-          </div>
-        </div>
-
-        <div className="max-w-[1728px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left column */}
-            <div className="flex flex-col font-ubuntu font-normal justify-center leading-[34px] text-[#0b1e46] text-[1.5rem] whitespace-pre-wrap">
-              <p className="mb-4">There is America the physical place. And there is America the idea, the idea of free people.</p>
-              <p className="mb-4">e-America is that idea, reborn for the digital age.</p>
-              <p className="mb-4">&nbsp;</p>
-              <p>e-America is a parallel digital America, an experiment in building government as a service for a borderless digital world. It is not a replacement for any existing nation. It is a parallel, digital America built on values, not geography, open to anyone who believes in liberty, equality, and the rule of law.</p>
-            </div>
-
-            {/* Right column - Image */}
-            <div className="h-[465px] w-full relative">
-              <img 
-                alt="" 
-                className="absolute inset-0 max-w-none object-cover pointer-events-none size-full rounded-lg" 
-                src={imgRectangle4} 
-              />
-            </div>
-          </div>
-
-          {/* Bottom text */}
-          <div className="mt-12 flex flex-col font-ubuntu font-normal justify-center leading-[34px] text-[#0b1e46] text-[1.5rem] whitespace-pre-wrap max-w-[604px] ml-auto">
-            <p className="mb-4">&nbsp;</p>
-            <p className="mb-4">&nbsp;</p>
-            <p className="mb-4">By joining, you agree to uphold the American Constitution, the timeless framework that has guided one of history's most enduring democracies.</p>
-            <p className="mb-4">&nbsp;</p>
-            <p>Once you join, you become an e-American and receive your digital passport, your identity in a global community united by shared principles, powered by Bitcoin.</p>
+          <div className="font-ubuntu font-bold leading-[2.25rem] relative text-[3.75rem] tracking-[2px] w-full">
+            <p className="leading-[2.25rem] whitespace-pre-wrap">
+              A Digital Experiment in{" "}
+              <span
+                style={{
+                  background:
+                    "linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Freedom
+              </span>
+            </p>
           </div>
         </div>
       </div>
+
+      {/* Content with border - full width */}
+      <div className="border-t border-[#769dd1] border-solid w-full">
+        {/* First row: Text left, Image right */}
+        <div className="relative w-full py-8">
+          <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-[4.1875rem] items-start w-full">
+            <div className="flex flex-col font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[725px]">
+              <p className="mb-0">
+                There is America the physical place. And there is America the
+                idea, the idea of free people. e-America is that idea, reborn
+                for the digital age.{" "}
+              </p>
+              <p className="mb-0">&nbsp;</p>
+              <p>
+                e-America is a parallel digital America, an experiment in
+                building government as a service for a borderless digital world.
+                It is not a replacement for any existing nation. It is a
+                parallel, digital America built on values, not geography, open
+                to anyone who believes in liberty, equality, and the rule of
+                law.
+              </p>
+            </div>
+            {/* Image - full width of viewport, breaks out to edge */}
+            <div className="h-[473.747px] relative w-full lg:w-[50vw] lg:mr-[calc(-50vw+50%)]">
+              <img
+                alt=""
+                className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full w-full"
+                src={imgRectangle4}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Second row: Image left, Text right */}
+        <div className="relative w-full py-8">
+          <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-[9.125rem] items-start w-full">
+            {/* Image - full width of viewport, breaks out to edge */}
+            <div className="h-[474.122px] relative w-full lg:w-[50vw] lg:ml-[calc(-50vw+50%)] lg:order-first">
+              <img
+                alt=""
+                className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full w-full"
+                src={imgRectangle5}
+              />
+            </div>
+            <div className="flex flex-col font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[604px] lg:order-last">
+              <p className="mb-0">
+                By joining, you agree to uphold the American Constitution, the
+                timeless framework that has guided one of history's most
+                enduring democracies.
+              </p>
+              <p className="mb-0">&nbsp;</p>
+              <p>
+                Once you join, you become an e-American and receive your digital
+                passport, your identity in a global community united by shared
+                principles, powered by Bitcoin.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider - full width */}
+      <div className="h-[6px] w-full" />
     </section>
-  );
-};
+  )
+}
 
-export default DigitalExperimentSection;
-
+export default DigitalExperimentSection
