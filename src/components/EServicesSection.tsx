@@ -85,12 +85,12 @@ const EServicesSection = () => {
 
       {/* Phases grid - full width of page */}
       <div className="w-full overflow-x-auto">
-        <div className="flex items-center justify-between gap-2 md:gap-4 lg:gap-8 px-4 md:px-8 lg:px-16">
+        <div className="flex items-center gap-2 md:gap-4 lg:gap-6 w-full">
           {phases.map((phase) => (
             <div
               key={phase.id}
               className="relative flex-shrink"
-              style={{ flexBasis: phase.imageWidth, minWidth: 0 }}
+              style={{ flexBasis: phase.imageWidth, minWidth: 0, flexGrow: 1 }}
             >
               {/* Vector image */}
               <div className="h-[340px] relative w-full">
@@ -103,12 +103,15 @@ const EServicesSection = () => {
 
               {/* Content overlay */}
               <div
-                className="absolute top-[21px] flex flex-col gap-4 items-start"
-                style={{ left: phase.contentLeft }}
+                className="absolute top-[21px] bottom-4 left-0 right-0 flex flex-col gap-4 items-start overflow-hidden"
+                style={{ 
+                  paddingLeft: `clamp(1rem, ${parseInt(phase.contentLeft) / 5}vw, ${phase.contentLeft})`,
+                  paddingRight: 'clamp(0.75rem, 2vw, 1.5rem)'
+                }}
               >
                 {/* Phase title */}
-                <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.5rem]">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.5rem] w-full">
+                  <p className="leading-[2.125rem] whitespace-pre-wrap break-words">
                     {phase.title}
                     <br aria-hidden="true" />
                     ({phase.year})
@@ -116,18 +119,18 @@ const EServicesSection = () => {
                 </div>
 
                 {/* Phase items */}
-                <div className="flex flex-col font-ubuntu font-normal justify-center leading-[normal] text-[#0b1e46] text-[1.25rem]">
-                  <ul className="list-disc whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-normal justify-center leading-[normal] text-[#0b1e46] text-[1.25rem] w-full">
+                  <ul className="list-disc w-full">
                     {phase.items.map((item, index) => (
                       <li
                         key={index}
                         className={
                           index === phase.items.length - 1
-                            ? "ms-[30px]"
-                            : "mb-0 ms-[30px]"
+                            ? "ms-[30px] pr-2"
+                            : "mb-0 ms-[30px] pr-2"
                         }
                       >
-                        <span className="leading-[2.125rem]">{item}</span>
+                        <span className="leading-[2.125rem] break-words">{item}</span>
                       </li>
                     ))}
                   </ul>
