@@ -89,7 +89,7 @@ const EServicesSection = () => {
       {/* Phases grid - full width of page */}
       <div className="w-full overflow-x-auto">
         <div className="flex items-stretch w-full">
-          {phases.map((phase, index) => (
+          {phases.map((phase) => (
             <div
               key={phase.id}
               className="relative flex-shrink-0 flex flex-col"
@@ -97,7 +97,6 @@ const EServicesSection = () => {
                 width: "auto",
                 flex: "1 1 0",
                 minWidth: 0,
-                marginLeft: index > 0 ? "-60px" : "0",
               }}
             >
               {/* Vector image - stretches to fill container */}
@@ -111,26 +110,26 @@ const EServicesSection = () => {
 
               {/* Content overlay */}
               <div
-                className="absolute top-[21px] left-0 right-0 flex flex-col gap-4 items-start"
+                className="absolute top-[21px] left-0 right-0 flex flex-col gap-3 items-start"
                 style={{
                   paddingLeft: `clamp(1.5rem, ${
                     parseInt(phase.contentLeft) / 5
                   }vw, ${phase.contentLeft})`,
-                  paddingRight: "clamp(1.5rem, 3vw, 2.5rem)",
+                  paddingRight: "clamp(3rem, 6vw, 5rem)",
                   paddingTop: "1rem",
                   paddingBottom: "2rem",
                 }}
               >
                 {/* Phase title */}
-                <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.5rem] w-full">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap break-words">
+                <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.25rem] w-full">
+                  <p className="leading-[1.75rem] whitespace-pre-wrap break-words">
                     {phase.title}
                     <br aria-hidden="true" />({phase.year})
                   </p>
                 </div>
 
                 {/* Phase items */}
-                <div className="flex flex-col font-ubuntu font-normal justify-center leading-[normal] text-[#0b1e46] text-[1.25rem] w-full">
+                <div className="flex flex-col font-ubuntu font-normal justify-center leading-[normal] text-[#0b1e46] text-[1rem] w-full">
                   <ul className="list-disc w-full">
                     {phase.items.map((item, index) => (
                       <li
@@ -141,7 +140,7 @@ const EServicesSection = () => {
                             : "mb-0 ms-[30px] pr-2"
                         }
                       >
-                        <span className="leading-[2.125rem] break-words">
+                        <span className="leading-[1.5rem] break-words">
                           {item}
                         </span>
                       </li>
@@ -152,23 +151,23 @@ const EServicesSection = () => {
 
               {/* Spacer to ensure container height matches content */}
               <div
-                className="invisible flex flex-col gap-4"
+                className="invisible flex flex-col gap-3"
                 style={{
                   paddingTop: "calc(21px + 1rem)",
                   paddingLeft: `clamp(1.5rem, ${
                     parseInt(phase.contentLeft) / 5
                   }vw, ${phase.contentLeft})`,
-                  paddingRight: "clamp(1.5rem, 3vw, 2.5rem)",
+                  paddingRight: "clamp(3rem, 6vw, 5rem)",
                   paddingBottom: "2rem",
                 }}
               >
-                <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.5rem] w-full">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap break-words">
+                <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.25rem] w-full">
+                  <p className="leading-[1.75rem] whitespace-pre-wrap break-words">
                     {phase.title}
                     <br aria-hidden="true" />({phase.year})
                   </p>
                 </div>
-                <div className="flex flex-col font-ubuntu font-normal justify-center leading-[normal] text-[#0b1e46] text-[1.25rem] w-full">
+                <div className="flex flex-col font-ubuntu font-normal justify-center leading-[normal] text-[#0b1e46] text-[1rem] w-full">
                   <ul className="list-disc w-full">
                     {phase.items.map((item, index) => (
                       <li
@@ -179,7 +178,7 @@ const EServicesSection = () => {
                             : "mb-0 ms-[30px] pr-2"
                         }
                       >
-                        <span className="leading-[2.125rem] break-words">
+                        <span className="leading-[1.5rem] break-words">
                           {item}
                         </span>
                       </li>
