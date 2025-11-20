@@ -3,7 +3,10 @@ const DigitalExperimentSection = () => {
   const imgRectangle5 = "/digital-experiment-2.png"
 
   return (
-    <section id="mission" className="relative bg-white pb-0 pt-[10rem]">
+    <section
+      id="mission"
+      className="relative bg-white pb-0 pt-16 lg:pt-[10rem]"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col gap-2 items-center text-center w-full max-w-[1149px] mx-auto mb-8">
@@ -35,7 +38,7 @@ const DigitalExperimentSection = () => {
         {/* First row: Text left, Image right */}
         <div className="relative w-full py-0">
           <div className="mx-auto flex flex-col lg:flex-row gap-[0rem] w-full">
-            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%]">
+            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] px-8 lg:px-0 py-6 lg:py-0">
               <div className="mb-0 max-w-[725px]">
                 <p className="mb-0">
                   There is America the physical place. And there is America the
@@ -68,14 +71,14 @@ const DigitalExperimentSection = () => {
         <div className="relative w-full py-0">
           <div className="mx-auto flex flex-col lg:flex-row w-full">
             {/* Image - full width of viewport, breaks out to edge */}
-            <div className="h-[474.122px] relative w-full lg:w-[50%] lg:ml-[calc(-50vw+50%)] lg:order-first">
+            <div className="h-[474.122px] relative w-full lg:w-[50%] lg:ml-[calc(-50vw+50%)] lg:order-first order-last">
               <img
                 alt=""
                 className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full w-full"
                 src={imgRectangle5}
               />
             </div>
-            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] lg:order-last">
+            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] lg:order-last order-first px-8 lg:px-0 py-6 lg:py-0">
               <div className="mb-0 max-w-[725px]">
                 <p className="mb-0">
                   By joining, you agree to uphold the American Constitution, the
