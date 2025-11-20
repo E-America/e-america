@@ -73,10 +73,13 @@ const EServicesSection = () => {
               </p>
               <div className="font-ubuntu font-normal leading-[2.125rem] text-[#0b1e46] text-[1.375rem] text-center max-w-[668px] whitespace-pre-wrap">
                 <p className="mb-0">
-                  e-America is gradually rolling out a suite of digital government
-                  services, built on open, decentralized infrastructure.{" "}
+                  e-America is gradually rolling out a suite of digital
+                  government services, built on open, decentralized
+                  infrastructure.{" "}
                 </p>
-                <p>All built to be open source, auditable, and citizen driven.</p>
+                <p>
+                  All built to be open source, auditable, and citizen driven.
+                </p>
               </div>
             </div>
           </div>
@@ -85,36 +88,44 @@ const EServicesSection = () => {
 
       {/* Phases grid - full width of page */}
       <div className="w-full overflow-x-auto">
-        <div className="flex items-center gap-0 md:gap-0 lg:gap-0 w-full">
-          {phases.map((phase) => (
+        <div className="flex items-stretch w-full">
+          {phases.map((phase, index) => (
             <div
               key={phase.id}
-              className="relative flex-shrink"
-              style={{ flexBasis: phase.imageWidth, minWidth: 0, flexGrow: 1 }}
+              className="relative flex-shrink-0 flex flex-col"
+              style={{
+                width: "auto",
+                flex: "1 1 0",
+                minWidth: 0,
+                marginLeft: index > 0 ? "-60px" : "0",
+              }}
             >
-              {/* Vector image */}
-              <div className="h-[340px] relative w-full">
+              {/* Vector image - stretches to fill container */}
+              <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <img
                   alt=""
-                  className="block max-w-none size-full object-contain"
+                  className="block max-w-none w-full h-full object-contain object-top"
                   src={phase.image}
                 />
               </div>
 
               {/* Content overlay */}
               <div
-                className="absolute top-[21px] bottom-4 left-0 right-0 flex flex-col gap-4 items-start overflow-hidden"
-                style={{ 
-                  paddingLeft: `clamp(1rem, ${parseInt(phase.contentLeft) / 5}vw, ${phase.contentLeft})`,
-                  paddingRight: 'clamp(0.75rem, 2vw, 1.5rem)'
+                className="absolute top-[21px] left-0 right-0 flex flex-col gap-4 items-start"
+                style={{
+                  paddingLeft: `clamp(1.5rem, ${
+                    parseInt(phase.contentLeft) / 5
+                  }vw, ${phase.contentLeft})`,
+                  paddingRight: "clamp(1.5rem, 3vw, 2.5rem)",
+                  paddingTop: "1rem",
+                  paddingBottom: "2rem",
                 }}
               >
                 {/* Phase title */}
                 <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.5rem] w-full">
                   <p className="leading-[2.125rem] whitespace-pre-wrap break-words">
                     {phase.title}
-                    <br aria-hidden="true" />
-                    ({phase.year})
+                    <br aria-hidden="true" />({phase.year})
                   </p>
                 </div>
 
@@ -130,7 +141,47 @@ const EServicesSection = () => {
                             : "mb-0 ms-[30px] pr-2"
                         }
                       >
-                        <span className="leading-[2.125rem] break-words">{item}</span>
+                        <span className="leading-[2.125rem] break-words">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Spacer to ensure container height matches content */}
+              <div
+                className="invisible flex flex-col gap-4"
+                style={{
+                  paddingTop: "calc(21px + 1rem)",
+                  paddingLeft: `clamp(1.5rem, ${
+                    parseInt(phase.contentLeft) / 5
+                  }vw, ${phase.contentLeft})`,
+                  paddingRight: "clamp(1.5rem, 3vw, 2.5rem)",
+                  paddingBottom: "2rem",
+                }}
+              >
+                <div className="flex flex-col font-ubuntu font-bold justify-center leading-[normal] text-[#b30c2a] text-[1.5rem] w-full">
+                  <p className="leading-[2.125rem] whitespace-pre-wrap break-words">
+                    {phase.title}
+                    <br aria-hidden="true" />({phase.year})
+                  </p>
+                </div>
+                <div className="flex flex-col font-ubuntu font-normal justify-center leading-[normal] text-[#0b1e46] text-[1.25rem] w-full">
+                  <ul className="list-disc w-full">
+                    {phase.items.map((item, index) => (
+                      <li
+                        key={index}
+                        className={
+                          index === phase.items.length - 1
+                            ? "ms-[30px] pr-2"
+                            : "mb-0 ms-[30px] pr-2"
+                        }
+                      >
+                        <span className="leading-[2.125rem] break-words">
+                          {item}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -145,4 +196,3 @@ const EServicesSection = () => {
 }
 
 export default EServicesSection
-
