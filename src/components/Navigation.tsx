@@ -88,10 +88,10 @@ const Navigation = () => {
                   .getElementById("mission")
                   ?.scrollIntoView({ behavior: "smooth" })
               }}
-              className={`text-[20px] leading-[normal] transition-colors font-ubuntu-mono whitespace-nowrap shrink-0 ${
+              className={`text-[1.25rem] leading-[normal] transition-colors font-ubuntu-mono font-normal text-center whitespace-nowrap shrink-0 ${
                 activeSection === "about"
-                  ? "text-white font-medium"
-                  : "text-[#B7B7B7] hover:text-white font-normal"
+                  ? "text-white"
+                  : "text-[#B7B7B7] hover:text-white"
               }`}
             >
               About Us
@@ -104,10 +104,10 @@ const Navigation = () => {
                   .getElementById("our-mission")
                   ?.scrollIntoView({ behavior: "smooth" })
               }}
-              className={`text-[20px] leading-[normal] transition-colors font-ubuntu-mono whitespace-nowrap shrink-0 ${
+              className={`text-[1.25rem] leading-[normal] transition-colors font-ubuntu-mono font-normal text-center whitespace-nowrap shrink-0 ${
                 activeSection === "mission"
-                  ? "text-white font-medium"
-                  : "text-[#B7B7B7] hover:text-white font-normal"
+                  ? "text-white"
+                  : "text-[#B7B7B7] hover:text-white"
               }`}
             >
               Our Mission
@@ -120,10 +120,10 @@ const Navigation = () => {
                   .getElementById("passport")
                   ?.scrollIntoView({ behavior: "smooth" })
               }}
-              className={`text-[20px] leading-[normal] transition-colors font-ubuntu-mono whitespace-nowrap shrink-0 ${
+              className={`text-[1.25rem] leading-[normal] transition-colors font-ubuntu-mono font-normal text-center whitespace-nowrap shrink-0 ${
                 activeSection === "passport"
-                  ? "text-white font-medium"
-                  : "text-[#B7B7B7] hover:text-white font-normal"
+                  ? "text-white"
+                  : "text-[#B7B7B7] hover:text-white"
               }`}
             >
               e-Passport
@@ -136,10 +136,10 @@ const Navigation = () => {
                   .getElementById("treasury")
                   ?.scrollIntoView({ behavior: "smooth" })
               }}
-              className={`text-[20px] leading-[normal] transition-colors font-ubuntu-mono whitespace-nowrap shrink-0 ${
+              className={`text-[1.25rem] leading-[normal] transition-colors font-ubuntu-mono font-normal text-center whitespace-nowrap shrink-0 ${
                 activeSection === "treasury"
-                  ? "text-white font-medium"
-                  : "text-[#B7B7B7] hover:text-white font-normal"
+                  ? "text-white"
+                  : "text-[#B7B7B7] hover:text-white"
               }`}
             >
               e-Treasury
@@ -152,10 +152,10 @@ const Navigation = () => {
                   .getElementById("services")
                   ?.scrollIntoView({ behavior: "smooth" })
               }}
-              className={`text-[20px] leading-[normal] transition-colors font-ubuntu-mono whitespace-nowrap shrink-0 ${
+              className={`text-[1.25rem] leading-[normal] transition-colors font-ubuntu-mono font-normal text-center whitespace-nowrap shrink-0 ${
                 activeSection === "services"
-                  ? "text-white font-medium"
-                  : "text-[#B7B7B7] hover:text-white font-normal"
+                  ? "text-white"
+                  : "text-[#B7B7B7] hover:text-white"
               }`}
             >
               e-Services
@@ -168,10 +168,10 @@ const Navigation = () => {
                   .getElementById("constitution")
                   ?.scrollIntoView({ behavior: "smooth" })
               }}
-              className={`text-[20px] leading-[normal] transition-colors font-ubuntu-mono whitespace-nowrap shrink-0 ${
+              className={`text-[1.25rem] leading-[normal] transition-colors font-ubuntu-mono font-normal text-center whitespace-nowrap shrink-0 ${
                 activeSection === "constitution"
-                  ? "text-white font-medium"
-                  : "text-[#B7B7B7] hover:text-white font-normal"
+                  ? "text-white"
+                  : "text-[#B7B7B7] hover:text-white"
               }`}
             >
               The Constitution
@@ -182,7 +182,7 @@ const Navigation = () => {
         <Link to="/apply" className="flex-none shrink-0">
           <button className="flex flex-row justify-center items-center font-ubuntu-mono font-medium rounded-[1000px] bg-white border border-[#0b1e46] border-solid hover:bg-white/95 transition-colors px-[36px] py-[16px]">
             <span
-              className="text-[22px] leading-[normal] whitespace-nowrap"
+              className="text-[20px] leading-[normal] whitespace-nowrap"
               style={{
                 background:
                   "linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)",
