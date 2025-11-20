@@ -15,7 +15,7 @@ const Footer = () => {
             <img className="size-[28px] sm:size-[32px] lg:size-[36px]" alt="Heart icon" src={imgHeart} />
             <span className="whitespace-pre-wrap">by</span>
           </div>
-          <div className="h-auto w-[200px] sm:w-[240px] lg:w-[263.93px] lg:h-[110.126px] mt-4 lg:mt-[37.37%]">
+          <div className="h-auto w-[200px] sm:w-[240px] lg:w-[263.93px] lg:h-[110.126px] mt-4 lg:mt-[1.79rem]">
             <img className="block max-w-none w-full h-auto" alt="Draper Nation logo" src={imgGroup25} />
           </div>
         </div>
