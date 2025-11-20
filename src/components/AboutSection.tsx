@@ -1,80 +1,103 @@
-import { Button } from "@/components/ui/button"
-import { Link } from "react-router-dom"
+const DigitalExperimentSection = () => {
+  const imgRectangle4 = "/digital-experiment-1.png"
+  const imgRectangle5 = "/digital-experiment-2.png"
 
-const AboutSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="mission" className="relative bg-white pb-0 pt-[10rem]">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-            A Digital Experiment in Freedom
-          </h2>
-
-          <div className="prose prose-lg max-w-none mb-12 space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              There is America the physical place. And there is America the
-              idea, the idea of free people.
+        {/* Header */}
+        <div className="flex flex-col gap-2 items-center text-center w-full max-w-[1149px] mx-auto mb-8">
+          <p className="font-ubuntu font-medium leading-[normal] text-[#0b1e46] text-[2rem] w-full whitespace-pre-wrap">
+            🇺🇸 e-AMERICA
+          </p>
+          <div className="font-ubuntu font-bold relative text-[3.75rem] tracking-[2px] w-full py-2">
+            <p
+              className="whitespace-pre-wrap"
+              style={{
+                background:
+                  "linear-gradient(86deg, #0B1E46 16.95%, #896580 44.99%, #DA1E3F 80.34%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "transparent",
+                lineHeight: "1.2",
+                display: "inline-block",
+              }}
+            >
+              A Digital Experiment in Freedom
             </p>
-
-            <p className="text-lg text-foreground leading-relaxed">
-              <strong>
-                e-America is that idea, reborn for the digital age.
-              </strong>
-            </p>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              e-America is a parallel digital America, an experiment in building
-              government as a service for a borderless digital world. It is not
-              a replacement for any existing nation. It is a parallel, digital
-              America built on values, not geography, open to anyone who
-              believes in liberty, equality, and the rule of law.
-            </p>
-
-            <div className="bg-white py-[100px] px-[70px] rounded-xl my-8 border border-dashed border-[#769dd1]">
-              <h3 className="text-2xl font-bold mb-4 text-[#0b1e46]">
-                ₿ Bitcoin in e-America
-              </h3>
-              <p className="text-[#0b1e46] leading-relaxed">
-                At the heart of the e-America economy is Bitcoin, the first and
-                only truly neutral global money. Bitcoin represents economic
-                independence, transparency, and borderless inclusion where
-                anyone can participate.
-              </p>
-            </div>
-
-            <div className="bg-white py-[100px] px-[70px] rounded-xl my-8 border border-dashed border-[#769dd1]">
-              <h3 className="text-2xl font-bold mb-4 text-[#0b1e46]">
-                📜 The American Constitution
-              </h3>
-              <p className="text-[#0b1e46] leading-relaxed mb-4">
-                The Constitution of the United States is the foundation of
-                e-America. Every e-American commits to uphold its values of
-                justice, liberty, and the pursuit of happiness.
-              </p>
-              <blockquote className="border-l-4 border-[#769dd1] pl-4 italic text-[#0b1e46]">
-                "We the People of the United States, in Order to form a more
-                perfect Union, establish Justice, insure domestic Tranquility,
-                provide for the common defence, promote the general Welfare, and
-                secure the Blessings of Liberty to ourselves and our
-                Posterity..."
-              </blockquote>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <Link to="/apply">
-              <Button
-                size="lg"
-                className="bg-gradient-ea text-white hover:opacity-90 font-semibold rounded-full px-12 py-6 text-lg shadow-xl"
-              >
-                Become an e-American Citizen
-              </Button>
-            </Link>
           </div>
         </div>
       </div>
+
+      {/* Content with border - full width */}
+      <div className="border-t border-[#769dd1] border-solid w-full">
+        {/* First row: Text left, Image right */}
+        <div className="relative w-full py-0">
+          <div className="mx-auto flex flex-col lg:flex-row gap-[0rem] w-full">
+            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%]">
+              <div className="mb-0 max-w-[725px]">
+                <p className="mb-0">
+                  There is America the physical place. And there is America the
+                  idea, the idea of free people. e-America is that idea, reborn
+                  for the digital age.{" "}
+                </p>
+                <p className="mb-0">&nbsp;</p>
+                <p>
+                  e-America is a parallel digital America, an experiment in
+                  building government as a service for a borderless digital
+                  world. It is not a replacement for any existing nation. It is
+                  a parallel, digital America built on values, not geography,
+                  open to anyone who believes in liberty, equality, and the rule
+                  of law.
+                </p>
+              </div>
+            </div>
+            {/* Image - full width of viewport, breaks out to edge */}
+            <div className="h-[473.747px] relative w-full lg:w-[50%] lg:mr-[calc(-50vw+50%)]">
+              <img
+                alt=""
+                className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full w-full"
+                src={imgRectangle4}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Second row: Image left, Text right */}
+        <div className="relative w-full py-0">
+          <div className="mx-auto flex flex-col lg:flex-row w-full">
+            {/* Image - full width of viewport, breaks out to edge */}
+            <div className="h-[474.122px] relative w-full lg:w-[50%] lg:ml-[calc(-50vw+50%)] lg:order-first">
+              <img
+                alt=""
+                className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full w-full"
+                src={imgRectangle5}
+              />
+            </div>
+            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] lg:order-last">
+              <div className="mb-0 max-w-[725px]">
+                <p className="mb-0">
+                  By joining, you agree to uphold the American Constitution, the
+                  timeless framework that has guided one of history's most
+                  enduring democracies.
+                </p>
+                <p className="mb-0">&nbsp;</p>
+                <p>
+                  Once you join, you become an e-American and receive your
+                  digital passport, your identity in a global community united
+                  by shared principles, powered by Bitcoin.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Divider - full width */}
+      {/* <div className="h-[6px] w-full" /> */}
     </section>
   )
 }
 
-export default AboutSection
+export default DigitalExperimentSection

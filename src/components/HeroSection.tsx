@@ -30,15 +30,16 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center gap-[7.5rem] text-center text-white min-h-screen pt-32 pb-20">
+      <div className="relative z-10 flex flex-col items-center justify-center gap-[7.5rem] text-center text-white min-h-screen pt-32 pb-20 px-4 md:px-0">
         <div className="flex flex-col items-center">
-          <p className="text-white font-ubuntu font-medium text-[2.625rem] leading-[normal] mb-0 mt-16">
+          <p className="text-white font-ubuntu font-medium text-[1.7rem] md:text-[2.625rem] leading-[normal] mb-0 mt-16">
             We're building a parallel digital America.
           </p>
 
-          <h1 className="text-white font-ubuntu-mono font-bold text-[6.875rem] leading-[normal] mt-[80px] text-align: center;">
+          <h1 className="text-white font-ubuntu-mono font-bold text-[4.5rem] md:text-[6.875rem] leading-[normal] mt-[80px] text-align: center;">
             America <br />
-            for <span className="inline-block">{currentWord}.</span>
+            for <br className="md:hidden" />
+            <span className="inline-block">{currentWord}.</span>
           </h1>
         </div>
 
