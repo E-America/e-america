@@ -85,7 +85,7 @@ const EServicesSection = () => {
 
       {/* Phases grid - full width of page */}
       <div className="w-full overflow-x-auto">
-        <div className="flex items-center gap-2 md:gap-4 lg:gap-6 w-full">
+        <div className="flex items-center gap-0 md:gap-0 lg:gap-0 w-full">
           {phases.map((phase) => (
             <div
               key={phase.id}
