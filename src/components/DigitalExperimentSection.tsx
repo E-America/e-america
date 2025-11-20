@@ -32,9 +32,9 @@ const DigitalExperimentSection = () => {
       {/* Content with border - full width */}
       <div className="border-t border-[#769dd1] border-solid w-full">
         {/* First row: Text left, Image right */}
-        <div className="relative w-full py-8">
+        <div className="relative w-full py-0">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-[4.1875rem] items-start w-full">
-            <div className="flex flex-col font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[725px]">
+            <div className="flex flex-col items-center justify-center font-ubuntu font-normal leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full">
               <p className="mb-0">
                 There is America the physical place. And there is America the
                 idea, the idea of free people. e-America is that idea, reborn
@@ -62,8 +62,8 @@ const DigitalExperimentSection = () => {
         </div>
 
         {/* Second row: Image left, Text right */}
-        <div className="relative w-full py-8">
-          <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-[9.125rem] items-start w-full">
+        <div className="relative w-full py-0">
+          <div className="container mx-auto px-4 flex flex-col lg:flex-row items-start w-full">
             {/* Image - full width of viewport, breaks out to edge */}
             <div className="h-[474.122px] relative w-full lg:w-[50vw] lg:ml-[calc(-50vw+50%)] lg:order-first">
               <img
@@ -72,7 +72,7 @@ const DigitalExperimentSection = () => {
                 src={imgRectangle5}
               />
             </div>
-            <div className="flex flex-col font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[604px] lg:order-last">
+            <div className="flex flex-col items-center justify-center font-ubuntu font-normal leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:order-last py-[100px] px-[70px]">
               <p className="mb-0">
                 By joining, you agree to uphold the American Constitution, the
                 timeless framework that has guided one of history's most
