@@ -10,6 +10,15 @@ interface ApplicationAnswer {
   question: string
 }
 
+interface ApplicationData {
+  id: number
+  first_name: string
+  last_name: string
+  created_at: string
+  passport_number: string
+  application_responses: ApplicationAnswer[]
+}
+
 const SUPABASE_URL = "https://xopgoepsswzvzyqrmaaf.supabase.co"
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhvcGdvZXBzc3d6dnp5cXJtYWFmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTgxMzYsImV4cCI6MjA3ODYzNDEzNn0.jaxVARbwHjNJ_aWOCCyqoHJaV4t7DW5F4QmVheRw_ao"
@@ -25,7 +34,8 @@ const imgGeminiGeneratedImageBcf4Ovbcf4Ovbcf41 =
 const Passport = () => {
   const [searchParams] = useSearchParams()
   const userId = searchParams.get("id")
-  const [data, setData] = useState<ApplicationAnswer[] | null>(null)
+  const [applicationData, setApplicationData] =
+    useState<ApplicationData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -38,6 +48,7 @@ const Passport = () => {
       }
 
       try {
+        // Call RPC function to get all application data
         const response = await fetch(
           `${SUPABASE_URL}/rest/v1/rpc/get_application_data`,
           {
@@ -57,7 +68,17 @@ const Passport = () => {
         }
 
         const result = await response.json()
-        setData(result)
+        // Handle both array and single object responses from Supabase RPC
+        let applicationData: ApplicationData | null = null
+        if (Array.isArray(result) && result.length > 0) {
+          applicationData = result[0] as ApplicationData
+        } else if (result && typeof result === "object" && "id" in result) {
+          // Single object response
+          applicationData = result as ApplicationData
+        } else {
+          throw new Error("Invalid response format from server")
+        }
+        setApplicationData(applicationData)
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred")
       } finally {
@@ -68,22 +89,28 @@ const Passport = () => {
     fetchPassportData()
   }, [userId])
 
-  const getFieldValue = (fieldId: string) => {
-    return data?.find((item) => item.field_id === fieldId)?.answer || ""
-  }
+  // Extract data from the RPC response
+  const firstName = applicationData?.first_name || ""
+  const lastName = applicationData?.last_name || ""
+  const passportNumber = applicationData?.passport_number || ""
 
-  const firstName = getFieldValue("axqAsliRLmn9")
-  const lastName = getFieldValue("D8x1hSxsGR3k")
+  // Get registration date from application created_at
+  const registrationDate = applicationData?.created_at
+    ? new Date(applicationData.created_at).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      })
+    : new Date().toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      })
 
-  // Generate passport number from userId (format: XA + last 8 chars of userId)
-  const passportNumber = userId ? `XA${userId.slice(-8).padStart(8, "0")}` : ""
-
-  // Get registration date (use current date or from data if available)
-  const registrationDate = new Date().toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  })
+  // Generate QR code URL using the application id
+  const qrCodeUrl = applicationData?.id
+    ? `https://xopgoepsswzvzyqrmaaf.supabase.co/storage/v1/object/qr-codes/${applicationData.id}.png`
+    : null
 
   if (loading) {
     return (
@@ -108,124 +135,171 @@ const Passport = () => {
 
   return (
     <div
-      className="relative size-full h-screen overflow-hidden bg-[#0b1e46]"
+      className="relative size-full min-h-screen bg-[#0b1e46]"
       data-name="Passport page UI"
     >
-      {/* Background Images */}
+      {/* Background Images - Absolutely Positioned */}
       <div
-        className="absolute h-[1117px] left-1/2 rounded-[99px] top-0 translate-x-[-50%] w-full max-w-[1728px] scale-100 lg:scale-100"
+        className="absolute inset-0 p-4 sm:p-6 lg:p-8"
         data-name="Gemini_Generated_Image_ce8gg5ce8gg5ce8g 1"
       >
         <div
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none rounded-[99px]"
+          className="relative w-full h-full pointer-events-none rounded-[99px] overflow-hidden"
         >
           <div className="absolute inset-0 overflow-hidden rounded-[99px]">
             <img
               alt=""
-              className="absolute h-[100.56%] left-0 max-w-none top-0 w-[107.19%] object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               src={imgGeminiGeneratedImageCe8Gg5Ce8Gg5Ce8G1}
             />
           </div>
           <div className="absolute inset-0 opacity-[0.93] overflow-hidden rounded-[99px]">
             <img
               alt=""
-              className="absolute h-[139.25%] left-[-24.27%] max-w-none top-[-4.41%] w-[193.74%] object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               src={imgGeminiGeneratedImageCe8Gg5Ce8Gg5Ce8G2}
             />
           </div>
         </div>
       </div>
 
-      {/* Logo */}
-      <div className="absolute h-[94.38px] left-[6%] lg:left-[108.11px] top-[84.7px] w-auto max-w-[347.071px]">
-        <img
-          alt="e-AMERICA logo"
-          className="block max-w-none h-full w-auto object-contain"
-          src={logo}
-        />
-      </div>
-
-      {/* Citizen of e-America Title */}
-      <h1 className="absolute block font-ubuntu-mono font-bold leading-[normal] left-1/2 text-[48px] lg:text-[86px] text-center text-white top-[291.54px] translate-x-[-50%] w-[90%] max-w-[1442.888px]">
-        <span className="whitespace-pre-wrap">Citizen of e-America</span>
-      </h1>
-
-      {/* Passport Information Fields */}
-      <div className="absolute content-stretch flex flex-col gap-[25px] items-start left-[6%] lg:left-[104.36px] top-[566.37px] w-[88%] max-w-[828.354px]">
-        <div className="content-stretch flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic relative shrink-0 text-[24px] lg:text-[40px] w-full">
-          <div className="flex flex-col font-ubuntu-mono justify-center relative shrink-0 text-[#b5c1db] w-full lg:w-[341.328px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              First Name
-            </p>
-          </div>
-          <div className="flex flex-col font-ubuntu font-bold justify-center relative shrink-0 text-white w-full lg:w-[428.025px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              {firstName || "—"}
-            </p>
-          </div>
-        </div>
-        <div className="content-stretch flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic relative shrink-0 text-[24px] lg:text-[40px] w-full">
-          <div className="flex flex-col font-ubuntu-mono justify-center relative shrink-0 text-[#b5c1db] w-full lg:w-[341.328px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              Last Name
-            </p>
-          </div>
-          <div className="flex flex-col font-ubuntu font-bold justify-center relative shrink-0 text-white w-full lg:w-[428.025px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              {lastName || "—"}
-            </p>
-          </div>
-        </div>
-        <div className="content-stretch flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic relative shrink-0 text-[24px] lg:text-[40px] w-full">
-          <div className="flex flex-col font-ubuntu-mono justify-center relative shrink-0 text-[#b5c1db] w-full lg:w-[341.328px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              Passport Number
-            </p>
-          </div>
-          <div className="flex flex-col font-ubuntu font-bold justify-center relative shrink-0 text-white w-full lg:w-[428.025px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              {passportNumber || "—"}
-            </p>
-          </div>
-        </div>
-        <div className="content-stretch flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic relative shrink-0 text-[24px] lg:text-[40px] w-full">
-          <div className="flex flex-col font-ubuntu-mono justify-center relative shrink-0 text-[#b5c1db] w-full lg:w-[341.328px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              Registration Date
-            </p>
-          </div>
-          <div className="flex flex-col font-ubuntu font-bold justify-center relative shrink-0 text-white w-full lg:w-[428.025px]">
-            <p className="leading-[36px] lg:leading-[60px] whitespace-pre-wrap">
-              {registrationDate}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* QR Code Label */}
-      <div className="absolute hidden lg:flex flex-col font-ubuntu-mono justify-center leading-[0] left-1/2 lg:left-[calc(50%+450px)] not-italic text-[20px] lg:text-[32px] text-center text-white top-[528.5px] translate-x-[-50%] translate-y-[-50%] w-[90%] max-w-[373.434px]">
-        <p className="leading-[30px] lg:leading-[60px] whitespace-pre-wrap">
-          Your e-Passport QR Code
-        </p>
-      </div>
-
-      {/* QR Code Container */}
-      <div className="absolute backdrop-blur-sm backdrop-filter bg-[rgba(255,255,255,0.4)] border-[3px] border-solid border-white left-1/2 lg:left-[1320.75px] rounded-[40px] w-[250px] h-[250px] lg:size-[300px] top-[581.37px] translate-x-[-50%] lg:translate-x-0">
-        <div className="absolute left-[26.41px] rounded-[16px] w-[calc(100%-52.82px)] h-[calc(100%-52.82px)] top-[25.67px]">
+      {/* Main Content Container - Flexbox Layout */}
+      <div className="relative min-h-screen w-full flex flex-col p-4 sm:p-6 lg:p-8 pb-[60px]">
+        {/* Logo - Top Left on Desktop, Centered on Mobile */}
+        <div className="h-[5.9rem] lg:h-[7rem] w-auto max-w-[21.7rem] lg:max-w-none mt-8 md:mt-12 lg:mt-12 mb-8 md:mb-8 lg:mb-12 mx-auto md:mx-0">
           <img
-            alt="QR Code"
-            className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[16px] size-full"
-            src={imgGeminiGeneratedImageBcf4Ovbcf4Ovbcf41}
+            alt="e-AMERICA logo"
+            className="block max-w-none h-full w-auto object-contain"
+            src={logo}
           />
         </div>
-      </div>
 
-      {/* Footer Bar */}
-      <div className="absolute bg-white h-[60.12px] left-0 top-[956.33px] lg:top-[956.33px] bottom-0 lg:bottom-auto w-full" />
-      <div className="absolute left-0 top-[956.33px] lg:top-[956.33px] w-full">
-        <Divider />
+        {/* Citizen of e-America Title - Centered, Split on Mobile */}
+        <div className="flex md:flex-1 md:items-center justify-center mb-8 md:mb-0 px-8 md:px-0">
+          <h1 className="block font-ubuntu-mono font-bold leading-[normal] text-[3rem] lg:text-[5.375rem] text-center text-white w-full max-w-[1442.888px]">
+            <span className="block md:inline">Citizen of</span>
+            <span className="hidden md:inline"> </span>
+            <span className="block md:inline">e-America</span>
+          </h1>
+        </div>
+
+        {/* Mobile Layout: QR Code Section */}
+        <div className="flex md:hidden flex-col items-center w-full mb-8 px-8">
+          {/* QR Code Label */}
+          <div className="flex flex-col font-ubuntu-mono justify-center leading-[0] not-italic text-[1.25rem] text-center text-white mb-4">
+            <p className="leading-[1.875rem] whitespace-pre-wrap">
+              Your e-Passport QR Code
+            </p>
+          </div>
+
+          {/* QR Code Container */}
+          <div className="relative backdrop-blur-sm backdrop-filter bg-[rgba(255,255,255,0.4)] border-[3px] border-solid border-white rounded-[40px] w-[250px] h-[250px]">
+            <div className="absolute left-[26.41px] rounded-[16px] w-[calc(100%-52.82px)] h-[calc(100%-52.82px)] top-[25.67px]">
+              {qrCodeUrl ? (
+                <img
+                  alt="QR Code"
+                  className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[16px] size-full"
+                  src={qrCodeUrl}
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center rounded-[16px] bg-white/20">
+                  <Loader2 className="h-8 w-8 animate-spin text-white" />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section - Info and QR Code */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-0 w-full mb-5 px-8 md:px-0">
+          {/* Left Side - Passport Information Fields */}
+          <div className="flex flex-col gap-[25px] items-start w-full lg:w-auto lg:max-w-[828.354px]">
+            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+              <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  First Name
+                </p>
+              </div>
+              <div className="flex flex-col font-ubuntu font-bold justify-center text-white w-full lg:w-[428.025px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  {firstName || "—"}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+              <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  Last Name
+                </p>
+              </div>
+              <div className="flex flex-col font-ubuntu font-bold justify-center text-white w-full lg:w-[428.025px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  {lastName || "—"}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+              <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  Passport Number
+                </p>
+              </div>
+              <div className="flex flex-col font-ubuntu font-bold justify-center text-white w-full lg:w-[428.025px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  {passportNumber || "—"}
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+              <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  Registration Date
+                </p>
+              </div>
+              <div className="flex flex-col font-ubuntu font-bold justify-center text-white w-full lg:w-[428.025px]">
+                <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
+                  {registrationDate}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - QR Code Section - Desktop */}
+          <div className="hidden md:flex flex-col items-end w-full md:w-auto md:max-w-[373.434px]">
+            {/* QR Code Label */}
+            <div className="flex flex-col font-ubuntu-mono justify-center leading-[0] not-italic text-[2rem] text-right text-white mb-4">
+              <p className="leading-[3.75rem] whitespace-pre-wrap">
+                Your e-Passport QR Code
+              </p>
+            </div>
+
+            {/* QR Code Container */}
+            <div className="relative backdrop-blur-sm backdrop-filter bg-[rgba(255,255,255,0.4)] border-[3px] border-solid border-white rounded-[40px] size-[300px]">
+              <div className="absolute left-[26.41px] rounded-[16px] w-[calc(100%-52.82px)] h-[calc(100%-52.82px)] top-[25.67px]">
+                {qrCodeUrl ? (
+                  <img
+                    alt="QR Code"
+                    className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[16px] size-full"
+                    src={qrCodeUrl}
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center rounded-[16px] bg-white/20">
+                    <Loader2 className="h-8 w-8 animate-spin text-white" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)] lg:w-[calc(100%+4rem)]">
+          <Divider />
+        </div>
       </div>
+      {/* Footer Bar */}
+      {/* <div className="absolute bg-white h-[60.12px] left-0 top-[calc(956.33px+16px)] lg:top-[calc(956.33px+16px)] bottom-0 lg:bottom-auto w-full" /> */}
     </div>
   )
 }
