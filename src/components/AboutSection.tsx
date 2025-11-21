@@ -38,7 +38,7 @@ const DigitalExperimentSection = () => {
         {/* First row: Text left, Image right */}
         <div className="relative w-full py-0">
           <div className="mx-auto flex flex-col lg:flex-row gap-[0rem] w-full">
-            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] px-8 lg:px-0 py-6 lg:py-0">
+            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] px-8 py-6 lg:py-0">
               <div className="mb-0 max-w-[725px]">
                 <p className="mb-0">
                   There is America the physical place. And there is America the
@@ -57,10 +57,10 @@ const DigitalExperimentSection = () => {
               </div>
             </div>
             {/* Image - full width of viewport, breaks out to edge */}
-            <div className="h-[473.747px] relative w-full lg:w-[50%] lg:mr-[calc(-50vw+50%)]">
+            <div className="h-auto lg:h-[473.747px] relative w-full lg:w-[50%] lg:mr-[calc(-50vw+50%)]">
               <img
                 alt=""
-                className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full w-full"
+                className="max-w-none object-center object-cover pointer-events-none w-full h-full lg:absolute lg:inset-0 lg:size-full"
                 src={imgRectangle4}
               />
             </div>
@@ -71,14 +71,14 @@ const DigitalExperimentSection = () => {
         <div className="relative w-full py-0">
           <div className="mx-auto flex flex-col lg:flex-row w-full">
             {/* Image - full width of viewport, breaks out to edge */}
-            <div className="h-[474.122px] relative w-full lg:w-[50%] lg:ml-[calc(-50vw+50%)] lg:order-first order-last">
+            <div className="h-auto lg:h-[474.122px] relative w-full lg:w-[50%] lg:ml-[calc(-50vw+50%)] lg:order-first order-last">
               <img
                 alt=""
-                className="absolute inset-0 max-w-none object-center object-cover pointer-events-none size-full w-full"
+                className="max-w-none object-center object-cover pointer-events-none w-full h-full lg:absolute lg:inset-0 lg:size-full"
                 src={imgRectangle5}
               />
             </div>
-            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] lg:order-last order-first px-8 lg:px-0 py-6 lg:py-0">
+            <div className="flex flex-col items-center font-ubuntu font-normal justify-center leading-[2.125rem] text-[#0b1e46] text-[1.375rem] w-full lg:w-[50%] lg:order-last order-first px-8 py-6 lg:py-0">
               <div className="mb-0 max-w-[725px]">
                 <p className="mb-0">
                   By joining, you agree to uphold the American Constitution, the

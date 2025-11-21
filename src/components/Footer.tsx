@@ -1,6 +1,6 @@
 const Footer = () => {
   const imgHeart = "/heart-icon.svg"
-  const imgGroup25 = "/draper-nation-logo.svg"
+  const imgGroup25 = "/draper-nation-logo.png"
   const imgTwitter = "/twitter-icon.svg"
   const imgInstagram = "/instagram-icon.svg"
   const imgLinkedin = "/linkedin-icon.svg"
@@ -19,9 +19,9 @@ const Footer = () => {
             />
             <span className="whitespace-pre-wrap">by</span>
           </div>
-          <div className="h-auto sm:w-[240px] lg:w-[263.93px] lg:h-[110.126px] mt-4 lg:mt-[1.79rem%]">
+          <div className="w-[200px] sm:w-[240px] lg:w-[263.93px] mt-4 lg:mt-[1.79rem%]">
             <img
-              className="block sm:max-w-none h-auto"
+              className="block w-full h-auto"
               alt="Draper Nation logo"
               src={imgGroup25}
             />
