@@ -5,5 +5,5 @@
  * This URL is used for absolute URLs in meta tags (OG images, etc.)
  */
 export const SITE_CONFIG = {
-  BASE_URL: "https://e-america.netlify.app",
+  BASE_URL: "https://e-america.org",
 } as const

@@ -140,9 +140,9 @@ const Passport = () => {
       >
         <div
           aria-hidden="true"
-          className="relative w-full h-full pointer-events-none rounded-[99px] overflow-hidden"
+          className="relative w-full h-full pointer-events-none rounded-[24px] md:rounded-[48px] overflow-hidden"
         >
-          <div className="absolute inset-0 opacity-[0.93] overflow-hidden rounded-[99px]">
+          <div className="absolute inset-0 opacity-[0.93] overflow-hidden rounded-[24px] md:rounded-[48px]">
             <img
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
@@ -155,7 +155,7 @@ const Passport = () => {
       {/* Main Content Container - Flexbox Layout */}
       <div className="relative min-h-screen w-full flex flex-col p-4 sm:p-6 lg:p-8 pb-[60px]">
         {/* Logo - Top Left on Desktop, Centered on Mobile */}
-        <div className="h-[5.9rem] lg:h-[7rem] w-auto max-w-[21.7rem] lg:max-w-none mt-8 md:mt-12 lg:mt-12 mb-8 md:mb-8 lg:mb-12 mx-auto md:mx-0">
+        <div className="h-[3rem] w-auto max-w-[21.7rem] lg:max-w-none mt-4 md:mt-12 lg:mt-12 mb-6 md:mb-8 lg:mb-12 mx-auto md:mx-0 md:ml-10">
           <img
             alt="e-AMERICA logo"
             className="block max-w-none h-full w-auto object-contain"
@@ -164,7 +164,7 @@ const Passport = () => {
         </div>
 
         {/* Citizen of e-America Title - Centered, Split on Mobile */}
-        <div className="flex md:flex-1 md:items-center justify-center mb-8 md:mb-0 px-8 md:px-0">
+        <div className="flex md:flex-1 md:items-center justify-center mb-4 md:mb-0 px-6 sm:px-10 md:px-10">
           <h1 className="block font-ubuntu-mono font-bold leading-[normal] text-[3rem] lg:text-[5.375rem] text-center text-white w-full max-w-[1442.888px]">
             <span className="block md:inline">Citizen of</span>
             <span className="hidden md:inline"> </span>
@@ -173,25 +173,25 @@ const Passport = () => {
         </div>
 
         {/* Mobile Layout: QR Code Section */}
-        <div className="flex md:hidden flex-col items-center w-full mb-8 px-8">
+        <div className="flex md:hidden flex-col items-center w-full mb-4 px-6 sm:px-10">
           {/* QR Code Label */}
-          <div className="flex flex-col font-ubuntu-mono justify-center leading-[0] not-italic text-[1.25rem] text-center text-white mb-4">
+          <div className="flex flex-col font-ubuntu-mono justify-center leading-[0] not-italic text-[1.25rem] text-center text-white mb-2">
             <p className="leading-[1.875rem] whitespace-pre-wrap">
               Your e-Passport QR Code
             </p>
           </div>
 
           {/* QR Code Container */}
-          <div className="relative backdrop-blur-sm backdrop-filter bg-[rgba(255,255,255,0.4)] border-[3px] border-solid border-white rounded-[40px] w-[250px] h-[250px]">
-            <div className="absolute left-[26.41px] rounded-[16px] w-[calc(100%-52.82px)] h-[calc(100%-52.82px)] top-[25.67px]">
+          <div className="relative backdrop-blur-sm backdrop-filter bg-[rgba(255,255,255,0.4)] border-[3px] border-solid border-white rounded-[24px] md:rounded-[48px] w-[250px] h-[250px]">
+            <div className="absolute left-[26.41px] rounded-[12px] md:rounded-[24px] w-[calc(100%-52.82px)] h-[calc(100%-52.82px)] top-[25.67px] bg-white p-4">
               {qrCodeUrl ? (
                 <img
                   alt="QR Code"
-                  className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[16px] size-full"
+                  className="w-full h-full max-w-none object-contain pointer-events-none rounded-[6px] md:rounded-[12px]"
                   src={qrCodeUrl}
                 />
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center rounded-[16px] bg-white/20">
+                <div className="absolute inset-0 flex items-center justify-center rounded-[12px] md:rounded-[24px] bg-white/20">
                   <Loader2 className="h-8 w-8 animate-spin text-white" />
                 </div>
               )}
@@ -200,10 +200,10 @@ const Passport = () => {
         </div>
 
         {/* Bottom Section - Info and QR Code */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-0 w-full mb-5 px-8 md:px-0">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-0 w-full mb-6 md:mb-12 px-6 sm:px-10 md:px-10">
           {/* Left Side - Passport Information Fields */}
-          <div className="flex flex-col gap-[25px] items-start w-full lg:w-auto lg:max-w-[828.354px]">
-            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+          <div className="flex flex-col gap-3 md:gap-[25px] items-start w-full lg:w-auto lg:max-w-[828.354px]">
+            <div className="flex flex-col lg:flex-row gap-0 md:gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
               <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
                 <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
                   First Name
@@ -215,7 +215,7 @@ const Passport = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+            <div className="flex flex-col lg:flex-row gap-0 md:gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
               <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
                 <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
                   Last Name
@@ -227,7 +227,7 @@ const Passport = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+            <div className="flex flex-col lg:flex-row gap-0 md:gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
               <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
                 <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
                   Passport Number
@@ -239,7 +239,7 @@ const Passport = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
+            <div className="flex flex-col lg:flex-row gap-0 md:gap-[20px] lg:gap-[59px] items-start lg:items-center leading-[0] not-italic text-[1.5rem] lg:text-[2.5rem] w-full">
               <div className="flex flex-col font-ubuntu-mono justify-center text-[#b5c1db] w-full lg:w-[341.328px]">
                 <p className="leading-[2.25rem] lg:leading-[3.75rem] whitespace-pre-wrap">
                   Registration Date
@@ -254,25 +254,25 @@ const Passport = () => {
           </div>
 
           {/* Right Side - QR Code Section - Desktop */}
-          <div className="hidden md:flex flex-col items-end w-full md:w-auto md:max-w-[373.434px]">
+          <div className="hidden md:flex flex-col items-end w-full md:w-auto md:flex-shrink-0">
             {/* QR Code Label */}
             <div className="flex flex-col font-ubuntu-mono justify-center leading-[0] not-italic text-[2rem] text-right text-white mb-4">
-              <p className="leading-[3.75rem] whitespace-pre-wrap">
+              <p className="leading-[3.75rem] whitespace-normal">
                 Your e-Passport QR Code
               </p>
             </div>
 
             {/* QR Code Container */}
-            <div className="relative backdrop-blur-sm backdrop-filter bg-[rgba(255,255,255,0.4)] border-[3px] border-solid border-white rounded-[40px] size-[300px]">
-              <div className="absolute left-[26.41px] rounded-[16px] w-[calc(100%-52.82px)] h-[calc(100%-52.82px)] top-[25.67px]">
+            <div className="relative backdrop-blur-sm backdrop-filter bg-[rgba(255,255,255,0.4)] border-[3px] border-solid border-white rounded-[48px] size-[300px]">
+              <div className="absolute left-[26.41px] rounded-[24px] w-[calc(100%-52.82px)] h-[calc(100%-52.82px)] top-[25.67px] bg-white p-5">
                 {qrCodeUrl ? (
                   <img
                     alt="QR Code"
-                    className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[16px] size-full"
+                    className="w-full h-full max-w-none object-contain pointer-events-none rounded-[12px]"
                     src={qrCodeUrl}
                   />
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center rounded-[16px] bg-white/20">
+                  <div className="absolute inset-0 flex items-center justify-center rounded-[24px] bg-white/20">
                     <Loader2 className="h-8 w-8 animate-spin text-white" />
                   </div>
                 )}
