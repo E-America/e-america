@@ -179,7 +179,12 @@ const Navigation = () => {
           </div>
         </div>
 
-        <Link to="/apply" className="flex-none shrink-0">
+        <a
+          href="/apply"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-none shrink-0"
+        >
           <button className="flex flex-row justify-center items-center font-ubuntu-mono font-medium rounded-[1000px] bg-white border border-[#0b1e46] border-solid hover:bg-white/95 transition-colors px-[36px] py-[16px]">
             <span
               className="text-[1.25rem] leading-[normal] whitespace-nowrap md:hidden"
@@ -206,7 +211,7 @@ const Navigation = () => {
               Apply For Citizenship
             </span>
           </button>
-        </Link>
+        </a>
       </div>
     </nav>
   )

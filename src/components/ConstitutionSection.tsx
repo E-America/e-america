@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom"
-
 const ConstitutionSection = () => {
   const imgImage8 = "/constitution-image.png"
 
@@ -70,8 +68,10 @@ const ConstitutionSection = () => {
 
           {/* Button and disclaimer */}
           <div className="flex flex-col gap-6 lg:gap-8 items-center w-full">
-            <Link
-              to="/apply"
+            <a
+              href="/apply"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white border border-[#0b1e46] border-solid box-border flex gap-[10px] items-center justify-center px-6 lg:px-9 py-3 lg:py-4 rounded-[1000px] hover:bg-white/95 transition-colors"
             >
               <p
@@ -86,7 +86,7 @@ const ConstitutionSection = () => {
               >
                 Apply For Citizenship
               </p>
-            </Link>
+            </a>
             <p className="font-ubuntu font-light italic leading-[26px] lg:leading-[34px] text-white text-[16px] lg:text-[18px] text-center whitespace-pre-wrap">
               Joining e-America is both a freedom and a responsibility.
             </p>

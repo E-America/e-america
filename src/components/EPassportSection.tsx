@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
 
 const EPassportSection = () => {
   // Image assets from local files
@@ -254,8 +253,10 @@ const EPassportSection = () => {
 
           {/* Button and footer */}
           <div className="flex flex-col gap-6 md:gap-8 lg:gap-[32px] items-center w-full px-4">
-            <Link
-              to="/apply"
+            <a
+              href="/apply"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white border border-[#0b1e46] border-solid box-border flex gap-[10px] items-center justify-center px-6 md:px-8 lg:px-[36px] py-3 md:py-4 lg:py-[16px] rounded-[1000px] hover:bg-white/95 transition-colors"
             >
               <p
@@ -270,7 +271,7 @@ const EPassportSection = () => {
               >
                 Apply For Citizenship
               </p>
-            </Link>
+            </a>
 
             <p className="font-ubuntu font-light italic leading-[26px] md:leading-[30px] lg:leading-[34px] text-white text-[16px] md:text-[17px] lg:text-[18px] text-center whitespace-pre-wrap max-w-[600px]">
               Joining e-America is both a freedom and a responsibility.
