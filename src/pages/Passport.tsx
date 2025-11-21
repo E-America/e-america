@@ -23,13 +23,8 @@ const SUPABASE_URL = "https://xopgoepsswzvzyqrmaaf.supabase.co"
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhvcGdvZXBzc3d6dnp5cXJtYWFmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNTgxMzYsImV4cCI6MjA3ODYzNDEzNn0.jaxVARbwHjNJ_aWOCCyqoHJaV4t7DW5F4QmVheRw_ao"
 
-// Image assets from Figma
-const imgGeminiGeneratedImageCe8Gg5Ce8Gg5Ce8G1 =
-  "https://www.figma.com/api/mcp/asset/387762cc-699f-4074-a95a-91cb96eb527c"
-const imgGeminiGeneratedImageCe8Gg5Ce8Gg5Ce8G2 =
-  "https://www.figma.com/api/mcp/asset/5e11165e-3368-4fdc-9fd0-ef7f9327043c"
-const imgGeminiGeneratedImageBcf4Ovbcf4Ovbcf41 =
-  "https://www.figma.com/api/mcp/asset/387c1df0-7056-4335-b6d5-55039573edd0"
+// Image assets from Figma (saved locally)
+const imgGeminiGeneratedImageCe8Gg5Ce8Gg5Ce8G2 = "/passport-bg-2.png"
 
 const Passport = () => {
   const [searchParams] = useSearchParams()
@@ -147,13 +142,6 @@ const Passport = () => {
           aria-hidden="true"
           className="relative w-full h-full pointer-events-none rounded-[99px] overflow-hidden"
         >
-          <div className="absolute inset-0 overflow-hidden rounded-[99px]">
-            <img
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover"
-              src={imgGeminiGeneratedImageCe8Gg5Ce8Gg5Ce8G1}
-            />
-          </div>
           <div className="absolute inset-0 opacity-[0.93] overflow-hidden rounded-[99px]">
             <img
               alt=""
