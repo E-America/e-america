@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="bg-[#0b1e46] box-border flex flex-col gap-12 sm:gap-16 lg:gap-[78px] items-center justify-center pb-6 sm:pb-8 lg:pb-[38px] pt-12 sm:pt-16 md:pt-20 lg:pt-[120px] px-4 sm:px-8 md:px-12 lg:px-16 xl:px-[80px] relative w-full">
       <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-0 relative shrink-0 w-full max-w-[1400px]">
         {/* Left Section: Crafted with by + Logo */}
-        <div className="flex flex-col items-center lg:items-start relative shrink-0 w-full lg:w-auto">
+        <div className="flex flex-col items-center lg:items-start relative shrink-0 w-full lg:w-auto lg:pt-0 lg:-mt-[10px]">
           <div className="flex items-center gap-2 font-ubuntu-mono font-bold text-[24px] sm:text-[28px] lg:text-[30px] text-white mb-4 lg:mb-0">
             <span className="whitespace-pre-wrap">Crafted with</span>
             <img
@@ -19,7 +19,7 @@ const Footer = () => {
             />
             <span className="whitespace-pre-wrap">by</span>
           </div>
-          <div className="w-[200px] sm:w-[240px] lg:w-[263.93px] mt-4 lg:mt-[1.79rem%]">
+          <div className="w-[13.5rem] mt-4 lg:mt-[1.79rem%]">
             <img
               className="block w-full h-auto"
               alt="Draper Nation logo"
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         {/* Right Section: Follow us */}
-        <div className="flex flex-col gap-[32px] items-center lg:items-end justify-center relative shrink-0 w-full lg:w-auto">
+        <div className="flex flex-col gap-[32px] items-center lg:items-end lg:justify-start relative shrink-0 w-full lg:w-auto">
           <p className="font-ubuntu-mono font-bold leading-[normal] text-[20px] sm:text-[22px] lg:text-[24px] text-center lg:text-right text-white whitespace-pre-wrap">
             Follow us
           </p>

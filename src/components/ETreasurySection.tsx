@@ -20,7 +20,7 @@ const ETreasurySection = () => {
           {/* Content */}
           <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-[9.8125rem] items-start justify-center w-full">
             {/* Left column - Content */}
-            <div className="hidden xl:flex flex-col gap-6 md:gap-8 lg:gap-[2.625rem] items-start w-full lg:w-[506px]">
+            <div className="flex flex-col gap-6 md:gap-8 lg:gap-[2.625rem] items-start w-full lg:w-[506px] order-1 lg:order-1">
               {/* e-Treasury */}
               <div className="flex flex-col gap-4 items-start w-full">
                 <div className="flex flex-col font-ubuntu font-bold justify-center text-[#b30c2a] text-[1.25rem] md:text-[1.375rem] lg:text-[1.5rem]">
@@ -89,7 +89,7 @@ const ETreasurySection = () => {
             </div>
 
             {/* Right column - Image */}
-            <div className="relative shrink-0 w-full lg:w-auto">
+            <div className="relative shrink-0 w-full lg:w-auto order-2 lg:order-2">
               <div className="border-[#0b1e46] border-[3.5px] border-solid h-[240px] md:h-[350px] lg:h-[466.297px] rounded-[40px] md:rounded-[50px] lg:rounded-[70px] w-full max-w-full lg:w-[639px] overflow-hidden relative mx-auto lg:mx-0">
                 <img
                   alt=""

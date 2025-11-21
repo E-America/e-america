@@ -1,4 +1,20 @@
-const Divider = () => {
+interface DividerProps {
+  variant?: "gradient" | "text"
+}
+
+const Divider = ({ variant = "gradient" }: DividerProps) => {
+  if (variant === "gradient") {
+    return (
+      <div
+        className="h-[6px] w-full"
+        style={{
+          background:
+            "linear-gradient(86deg, #0B1E46 16.95%, #DA1E3F 51.52%, rgba(218, 30, 63, 0.00) 78.41%)",
+        }}
+      />
+    )
+  }
+
   return (
     <div
       className="relative h-[3.75rem] w-full overflow-hidden flex items-center justify-start"
