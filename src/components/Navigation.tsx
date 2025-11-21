@@ -182,7 +182,7 @@ const Navigation = () => {
         <Link to="/apply" className="flex-none shrink-0">
           <button className="flex flex-row justify-center items-center font-ubuntu-mono font-medium rounded-[1000px] bg-white border border-[#0b1e46] border-solid hover:bg-white/95 transition-colors px-[36px] py-[16px]">
             <span
-              className="text-[20px] leading-[normal] whitespace-nowrap md:hidden"
+              className="text-[1.25rem] leading-[normal] whitespace-nowrap md:hidden"
               style={{
                 background:
                   "linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)",
@@ -194,7 +194,7 @@ const Navigation = () => {
               Apply
             </span>
             <span
-              className="text-[20px] leading-[normal] whitespace-nowrap hidden md:inline"
+              className="text-[1.25rem] leading-[normal] whitespace-nowrap hidden md:inline"
               style={{
                 background:
                   "linear-gradient(85.23deg, #0B1E46 16.92%, #896580 56.67%, #BF8398 70.07%, #DA1E3F 106.8%)",

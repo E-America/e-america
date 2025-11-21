@@ -41,9 +41,19 @@ All colors MUST be HSL.
     /* e-America Brand Colors */
     --ea-blue: 217 91% 60%;
     --ea-magenta: 332 84% 55%;
-    --ea-gradient: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(268 80% 55%) 50%, hsl(332 84% 55%) 100%);
-    --ea-hero-gradient: linear-gradient(180deg, hsl(217 91% 45%) 0%, hsl(268 70% 50%) 70%, hsl(332 84% 55%) 100%);
-    
+    --ea-gradient: linear-gradient(
+      135deg,
+      hsl(217 91% 60%) 0%,
+      hsl(268 80% 55%) 50%,
+      hsl(332 84% 55%) 100%
+    );
+    --ea-hero-gradient: linear-gradient(
+      180deg,
+      hsl(217 91% 45%) 0%,
+      hsl(268 70% 50%) 70%,
+      hsl(332 84% 55%) 100%
+    );
+
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -84,7 +94,8 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  html, body {
+  html,
+  body {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -95,7 +106,12 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold;
   }
 }
@@ -106,10 +122,20 @@ All colors MUST be HSL.
   }
 
   .bg-gradient-ea {
-    background: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(268 80% 55%) 50%, hsl(332 84% 55%) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(217 91% 60%) 0%,
+      hsl(268 80% 55%) 50%,
+      hsl(332 84% 55%) 100%
+    );
   }
 
   .bg-gradient-hero {
-    background: linear-gradient(180deg, hsl(217 91% 45%) 0%, hsl(268 70% 50%) 70%, hsl(332 84% 55%) 100%);
+    background: linear-gradient(
+      180deg,
+      hsl(217 91% 45%) 0%,
+      hsl(268 70% 50%) 70%,
+      hsl(332 84% 55%) 100%
+    );
   }
 }

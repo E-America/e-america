@@ -4,29 +4,32 @@ const ETreasurySection = () => {
   const imgE = "/treasury-e-icon.svg"
 
   return (
-    <section id="treasury" className="relative bg-white py-[7.5rem]">
-      <div className="container mx-auto px-4">
+    <section
+      id="treasury"
+      className="relative bg-white py-12 md:py-16 lg:py-[7.5rem]"
+    >
+      <div className="container mx-auto px-8 lg:px-4">
         <div className="max-w-[1568px] mx-auto">
           {/* Title */}
-          <div className="flex gap-[10px] items-center justify-center p-[10px] mb-[4.125rem]">
-            <p className="font-ubuntu-mono font-bold leading-[normal] text-[#0b1e46] text-[3.75rem] text-center">
+          <div className="flex gap-[10px] items-center justify-center p-[10px] mb-8 md:mb-12 lg:mb-[4.125rem]">
+            <p className="font-ubuntu-mono font-bold leading-[normal] text-[#0b1e46] text-[1.5rem] md:text-[2rem] lg:text-[2.5rem] text-center md:px-14">
               e-Treasury
             </p>
           </div>
 
           {/* Content */}
-          <div className="flex flex-col lg:flex-row gap-[9.8125rem] items-start justify-center w-full">
+          <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-[9.8125rem] items-start justify-center w-full">
             {/* Left column - Content */}
-            <div className="flex flex-col gap-[2.625rem] items-start w-full lg:w-[506px]">
+            <div className="hidden xl:flex flex-col gap-6 md:gap-8 lg:gap-[2.625rem] items-start w-full lg:w-[506px]">
               {/* e-Treasury */}
               <div className="flex flex-col gap-4 items-start w-full">
-                <div className="flex flex-col font-ubuntu font-bold justify-center text-[#b30c2a] text-[1.5rem]">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-bold justify-center text-[#b30c2a] text-[1.25rem] md:text-[1.375rem] lg:text-[1.5rem]">
+                  <p className="leading-[1.75rem] md:leading-[2rem] lg:leading-[2.125rem] whitespace-pre-wrap md:px-14">
                     e-Treasury
                   </p>
                 </div>
-                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1.25rem] w-[504px]">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] w-full lg:w-[504px]">
+                  <p className="leading-[1.5rem] md:leading-[1.875rem] lg:leading-[2.125rem] whitespace-pre-wrap md:px-14">
                     The e-America Treasury will operate entirely in Bitcoin,
                     held transparently and governed by multi signature wallets.
                   </p>
@@ -35,13 +38,13 @@ const ETreasurySection = () => {
 
               {/* Citizen Wallets */}
               <div className="flex flex-col gap-4 items-start w-full">
-                <div className="flex flex-col font-ubuntu font-bold justify-center text-[#b30c2a] text-[1.5rem]">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-bold justify-center text-[#b30c2a] text-[1.25rem] md:text-[1.375rem] lg:text-[1.5rem]">
+                  <p className="leading-[1.75rem] md:leading-[2rem] lg:leading-[2.125rem] whitespace-pre-wrap md:px-14">
                     Citizen Wallets
                   </p>
                 </div>
-                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1.25rem] w-[501.544px]">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] w-full lg:w-[501.544px]">
+                  <p className="leading-[1.5rem] md:leading-[1.875rem] lg:leading-[2.125rem] whitespace-pre-wrap md:px-14">
                     Each e-American will have a verified wallet to receive,
                     transact, and participate in treasury governance.
                   </p>
@@ -50,33 +53,33 @@ const ETreasurySection = () => {
 
               {/* Why Bitcoin? */}
               <div className="flex flex-col gap-4 items-start w-full">
-                <div className="flex flex-col font-ubuntu font-bold justify-center text-[#b30c2a] text-[1.5rem]">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-bold justify-center text-[#b30c2a] text-[1.25rem] md:text-[1.375rem] lg:text-[1.5rem]">
+                  <p className="leading-[1.75rem] md:leading-[2rem] lg:leading-[2.125rem] whitespace-pre-wrap md:px-14">
                     Why Bitcoin?
                   </p>
                 </div>
-                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1.25rem] w-[501.544px]">
-                  <p className="leading-[2.125rem] whitespace-pre-wrap mb-0">
+                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] w-full lg:w-[501.544px]">
+                  <p className="leading-[1.5rem] md:leading-[1.875rem] lg:leading-[2.125rem] whitespace-pre-wrap mb-0 md:px-14">
                     Bitcoin is the official currency and financial foundation of
                     e-America. It ensures that the digital nation remains
                     neutral, global, and incorruptible.
                   </p>
                 </div>
-                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1.25rem] w-full">
-                  <ul className="list-disc whitespace-pre-wrap">
+                <div className="flex flex-col font-ubuntu font-normal justify-center text-[#0b1e46] text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] w-full">
+                  <ul className="list-disc whitespace-pre-wrap md:px-14">
                     <li className="mb-0 ms-[30px]">
-                      <span className="leading-[2.125rem]">
+                      <span className="leading-[1.5rem] md:leading-[1.875rem] lg:leading-[2.125rem]">
                         Economic independence where no central authority
                         controls it
                       </span>
                     </li>
                     <li className="mb-0 ms-[30px]">
-                      <span className="leading-[2.125rem]">
+                      <span className="leading-[1.5rem] md:leading-[1.875rem] lg:leading-[2.125rem]">
                         Transparency where every transaction is verifiable
                       </span>
                     </li>
                     <li className="ms-[30px]">
-                      <span className="leading-[2.125rem]">
+                      <span className="leading-[1.5rem] md:leading-[1.875rem] lg:leading-[2.125rem]">
                         Borderless inclusion where anyone can participate
                       </span>
                     </li>
@@ -86,15 +89,15 @@ const ETreasurySection = () => {
             </div>
 
             {/* Right column - Image */}
-            <div className="relative shrink-0">
-              <div className="border-[#0b1e46] border-[3.5px] border-solid h-[466.297px] rounded-[70px] w-[639px] overflow-hidden relative">
+            <div className="relative shrink-0 w-full lg:w-auto">
+              <div className="border-[#0b1e46] border-[3.5px] border-solid h-[240px] md:h-[350px] lg:h-[466.297px] rounded-[40px] md:rounded-[50px] lg:rounded-[70px] w-full max-w-full lg:w-[639px] overflow-hidden relative mx-auto lg:mx-0">
                 <img
                   alt=""
-                  className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[70px] size-full"
+                  className="absolute inset-0 max-w-none object-center object-cover pointer-events-none rounded-[40px] md:rounded-[50px] lg:rounded-[70px] size-full"
                   src={imgGeminiGeneratedImageVa35Ylva35Ylva351}
                 />
                 {/* Decorative elements */}
-                <div className="absolute left-[127.64px] top-[128.18px] h-[13.492px] w-[19.969px]">
+                <div className="absolute left-[127.64px] top-[128.18px] h-[13.492px] w-[19.969px] hidden lg:block">
                   <div className="absolute inset-[-5.26%_6.86%_-5.91%_7.75%]">
                     <img
                       alt=""
@@ -103,7 +106,7 @@ const ETreasurySection = () => {
                     />
                   </div>
                 </div>
-                <div className="absolute left-[136.26px] top-[131.08px] flex items-center justify-center">
+                <div className="absolute left-[136.26px] top-[131.08px] hidden lg:flex items-center justify-center">
                   <div className="flex-none rotate-[336.667deg]">
                     <div className="h-[6.798px] relative w-[6.645px]">
                       <div className="absolute inset-[-51.48%_-52.67%]">

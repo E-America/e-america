@@ -4,16 +4,44 @@ import heroBackground from "@/assets/hero-background.jpg"
 const HeroSection = () => {
   const words = ["me", "you", "us", "everyone"]
   const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [displayedText, setDisplayedText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length)
-    }, 2000)
+    const currentWord = words[currentWordIndex]
+    const typingSpeed = 100 // milliseconds per letter
+    const deletingSpeed = 50 // milliseconds per letter
+    const pauseAfterTyping = 2000 // 2 seconds pause after typing
 
-    return () => clearInterval(interval)
-  }, [words.length])
+    let timeout: NodeJS.Timeout
 
-  const currentWord = words[currentWordIndex]
+    if (!isDeleting) {
+      // Typing mode
+      if (displayedText.length < currentWord.length) {
+        timeout = setTimeout(() => {
+          setDisplayedText(currentWord.slice(0, displayedText.length + 1))
+        }, typingSpeed)
+      } else {
+        // Finished typing, pause then start deleting
+        timeout = setTimeout(() => {
+          setIsDeleting(true)
+        }, pauseAfterTyping)
+      }
+    } else {
+      // Deleting mode
+      if (displayedText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1))
+        }, deletingSpeed)
+      } else {
+        // Finished deleting, move to next word
+        setIsDeleting(false)
+        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length)
+      }
+    }
+
+    return () => clearTimeout(timeout)
+  }, [displayedText, isDeleting, currentWordIndex, words])
   const imgHeroSection = "/hero-background.png"
   const imgVector = "/arrow-icon.svg"
 
@@ -39,7 +67,14 @@ const HeroSection = () => {
           <h1 className="text-white font-ubuntu-mono font-bold text-[4.5rem] md:text-[6.875rem] leading-[normal] mt-[80px] text-align: center;">
             America <br />
             for <br className="md:hidden" />
-            <span className="inline-block">{currentWord}.</span>
+            <span className="inline-block">
+              {displayedText}
+              {displayedText.length === words[currentWordIndex]?.length &&
+              !isDeleting
+                ? "."
+                : ""}
+              <span className="inline-block ml-1 animate-pulse">|</span>
+            </span>
           </h1>
         </div>
 

@@ -10,10 +10,10 @@ const DigitalExperimentSection = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col gap-2 items-center text-center w-full max-w-[1149px] mx-auto mb-8">
-          <p className="font-ubuntu font-medium leading-[normal] text-[#0b1e46] text-[2rem] w-full whitespace-pre-wrap">
+          <p className="font-ubuntu font-medium leading-[normal] text-[#0b1e46] text-[1.5rem] w-full whitespace-pre-wrap">
             🇺🇸 e-AMERICA
           </p>
-          <div className="font-ubuntu font-bold relative text-[3.75rem] tracking-[2px] w-full py-2">
+          <div className="font-ubuntu font-bold relative text-[2.5rem] tracking-[2px] w-full py-2">
             <p
               className="whitespace-pre-wrap"
               style={{
