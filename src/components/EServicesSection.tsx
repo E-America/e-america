@@ -141,11 +141,16 @@ const EServicesSection = () => {
                 }}
               >
                 {/* Vector image - stretches to fill container */}
-                <div className="absolute inset-0 w-full h-full pointer-events-none">
+                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
                   <img
                     alt=""
-                    className="block max-w-none w-full h-full object-contain object-top"
+                    className="block"
                     src={phase.image}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "block",
+                    }}
                   />
                 </div>
 
