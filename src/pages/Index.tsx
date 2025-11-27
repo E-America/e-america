@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation"
 import HeroSection from "@/components/HeroSection"
 import DigitalExperimentSection from "@/components/AboutSection"
-import QuoteSection from "@/components/QuoteSection"
 import MissionSection from "@/components/MissionSection"
 import BackgroundSection from "@/components/BackgroundSection"
 import EPassportSection from "@/components/EPassportSection"
@@ -17,7 +16,6 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <DigitalExperimentSection />
-      <QuoteSection />
       <MissionSection />
       <EPassportSection />
       <ETreasurySection />
